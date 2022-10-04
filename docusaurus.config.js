@@ -80,6 +80,7 @@ const config = {
             to: '/admin',
             position: 'right',
             label: 'Admin',
+            target: '_blank',
           },
         ],
       },
