@@ -1,5 +1,7 @@
 ---
 sidebar_position: 6
+title: Basics of Docusaurus
+slug: second-blog-post
 ---
 
 # Congratulations!

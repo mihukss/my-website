@@ -8,9 +8,58 @@ media_folder: "static/img" # Media files will be stored in the repo under static
 public_folder: "/img/" # The src attribute for uploaded media will begin with /images/uploads
 
 collections:
-- name: blog
-  label: "blog"
+- name: Blog
+  label: "Blog"
   folder: blog
+  identifier_field: title
+  extension: md
+  widget: "list"
+  create: true
+  slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  fields:
+    - { name: title, label: Title, widget: string }
+    - { name: body, label: Body, widget: markdown }
+    - { name: slug, label: Slug, widget: string }
+    - label: "Tags"
+      name: "tags"
+      widget: "list"
+    - label: "Authors"
+      name: "authors" 
+      widget: "list"
+      fields:
+        - { name: name, label: Name, widget: string }
+        - { name: title, label: Title, widget: string } 
+        - { name: url, label: URL, widget: string } 
+        - { name: imageUrl, label: ImageURL, widget: string } 
+- name: Pages
+  label: "Page"
+  folder: docs
+  identifier_field: title
+  extension: md
+  widget: "list"
+  create: true
+  nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: '{{title}}' # optional summary for a tree node, defaults to the inferred title field
+  slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  fields:
+    - { name: title, label: Title, widget: string }
+    - { name: body, label: Body, widget: markdown }
+    - { name: slug, label: Slug, widget: string }
+    - label: "Tags"
+      name: "tags"
+      widget: "list"
+    - label: "Authors"
+      name: "authors" 
+      widget: "list"
+      fields:
+        - { name: name, label: Name, widget: string }
+        - { name: title, label: Title, widget: string } 
+        - { name: url, label: URL, widget: string } 
+        - { name: imageUrl, label: ImageURL, widget: string } 
+- name: Tutorial Basics
+  label: "Tutorial Basics"
+  folder: docs/tutorial-basics
   identifier_field: title
   extension: md
   widget: "list"
