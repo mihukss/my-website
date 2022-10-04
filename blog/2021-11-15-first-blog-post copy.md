@@ -1,5 +1,5 @@
 ---
-title: second Blog Post
+title: Second Blog Post
 slug: second-blog-post
 tags:
   - foo
